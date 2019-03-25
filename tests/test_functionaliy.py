@@ -34,3 +34,7 @@ class TestFunctionality(unittest.TestCase):
     def test_min(self):
         prof = self.test_one_for_loop()
         _ = prof.min()
+
+    def test_to_dataframe(self):
+        prof = self.test_one_for_loop()
+        a = prof.to_dataframe()

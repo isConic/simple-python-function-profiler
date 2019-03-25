@@ -1,6 +1,7 @@
 from time import time
 import numpy as np
 import json
+import pandas
 
 class PerformanceProfiler:
     def __init__(self):
@@ -52,6 +53,19 @@ class PerformanceProfiler:
     def min(self):
         return self.apply(np.min)
 
+    def to_dataframe(self):
+        log = self.history
+
+        durrations = []
+        function_names = []
+        
+        for function_name in log.keys():
+            for value in log[function_name]:
+                durrations.append(value)
+                function_names.append(function_name)
+
+        return pandas.DataFrame(dict(durrations = durrations,
+                                     function = function_name))
     def save(self, file_name):
         with open(file_name, 'w') as fp:
             json.dump(self.history, fp)
