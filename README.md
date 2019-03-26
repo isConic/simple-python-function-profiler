@@ -98,3 +98,18 @@ fun_profiler.max()
 >> {'count_to_on_million': 0.026927709579467773,
  'count_to_ten_thousand': 0.000997781753540039}
 ```
+
+# IO
+
+**pandas**
+```python
+fun_profiler.to_dataframe()
+
+>>   durrations function
+0    0.000000   pass_n
+1    0.000997   pass_n
+2    0.000000   pass_n
+3    0.001081   pass_n
+4    0.000000   pass_n
+
+```
