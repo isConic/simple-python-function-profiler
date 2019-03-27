@@ -113,3 +113,19 @@ fun_profiler.to_dataframe()
 4    0.000000   pass_n
 
 ```
+
+**json save**
+
+```python
+
+fun_profiler.to_json("function_stats.json") 
+
+```
+
+**json load**
+```python
+
+new_profiler = PerformanceProfiler()
+new_profiler.from_json("function_stats.json") 
+
+```

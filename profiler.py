@@ -66,10 +66,10 @@ class PerformanceProfiler:
 
         return pandas.DataFrame(dict(durrations = durrations,
                                      function = function_name))
-    def save(self, file_name):
+    def to_json(self, file_name):
         with open(file_name, 'w') as fp:
             json.dump(self.history, fp)
 
-    def load(self, file_name):
+    def from_json(self, file_name):
         with open(file_name, 'r') as fp:
             self.history = self.merge_array_dict(json.load(fp), self.history)
