@@ -2,6 +2,8 @@ from time import time
 import numpy as np
 import json
 import pandas
+import matplotlib.pyplot as plt
+
 
 class PerformanceProfiler:
     def __init__(self):
@@ -73,3 +75,13 @@ class PerformanceProfiler:
     def from_json(self, file_name):
         with open(file_name, 'r') as fp:
             self.history = self.merge_array_dict(json.load(fp), self.history)
+
+    def plot(self):
+        for key in self.history.keys():
+            values = self.history[key]
+            plt.figure(figsize = (10,2))
+            plt.hist(values, bins = int(values)//4)
+            plt.title(key)
+        plt.show()
+
+
